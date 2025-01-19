@@ -1,0 +1,1224 @@
+% Template for PLoS
+% Version 3.5 March 2018
+%
+% % % % % % % % % % % % % % % % % % % % % %
+%
+% -- IMPORTANT NOTE
+%
+% This template contains comments intended 
+% to minimize problems and delays during our production 
+% process. Please follow the template instructions
+% whenever possible.
+%
+% % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Once your paper is accepted for publication, 
+% PLEASE REMOVE ALL TRACKED CHANGES in this file 
+% and leave only the final text of your manuscript. 
+% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
+% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
+%
+%
+% There are no restrictions on package use within the LaTeX files except that 
+% no packages listed in the template may be deleted.
+%
+% Please do not include colors or graphics in the text.
+%
+% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- FIGURES AND TABLES
+%
+% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
+%
+% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
+% - Figures should be uploaded separately from your manuscript file. 
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% For figure citations, please use "Fig" instead of "Figure".
+% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
+%
+% Tables should be cell-based and may not contain:
+% - spacing/line breaks within cells to alter layout or alignment
+% - do not nest tabular environments (no tabular environments within tabular environments)
+% - no graphics or colored text (cell background color/shading OK)
+% See http://journals.plos.org/plosone/s/tables for table guidelines.
+%
+% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- EQUATIONS, MATH SYMBOLS, SUBSCRIPTS, AND SUPERSCRIPTS
+%
+% IMPORTANT
+% Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
+%
+% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
+%
+% Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
+%
+% Please add line breaks to long display equations when possible in order to fit size of the column. 
+%
+% For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
+%
+% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2". 
+%
+% Do not use \cal for caligraphic font.  Instead, use \mathcal{}
+%
+% % % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Please contact latex@plos.org with any questions.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% Use Unicode characters when possible
+\usepackage[utf8x]{inputenc}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+\usepackage{multirow}
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+\usepackage{booktabs}
+
+\usepackage{csquotes}
+
+\usepackage{hyperref}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+%% END MACROS SECTION
+
+
+\begin{document}
+\vspace*{0.2in}
+
+% Title must be 250 characters or less.
+\begin{flushleft}
+{\Large
+\textbf\newline{Sampling errors and variability in video transects for assessment of reef fish assemblage structure and diversity} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+}
+\newline
+% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
+\\
+Stijn Bruneel\textsuperscript{1,2*},
+Long Ho\textsuperscript{1},
+Wout Van Echelpoel\textsuperscript{1},
+Amber Schoeters\textsuperscript{1},
+Heleen Raat\textsuperscript{1},
+Tom Moens\textsuperscript{2},
+Rafael Bermudez\textsuperscript{3,4},
+Stijn Luca\textsuperscript{5},
+Peter Goethals\textsuperscript{1}
+\\
+\bigskip
+\textbf{1} Department of Animal Sciences and Aquatic Ecology, Ghent University, Coupure Links 653, 9000 Ghent, Belgium
+\\
+\textbf{2} Marine Biology Research Group, Ghent University, Krijgslaan 281, 9000 Ghent, Belgium
+\\
+\textbf{3} Galapagos Marine Research and Exploration, GMaRE. Joint ESPOL-CDF program, Charles Darwin Research Station, 200102 Galapagos Islands, Ecuador
+\\
+\textbf{4} Facultad de Ingeniería Marítima y Ciencias del Mar, Escuela Superior Politécnica del Litoral (ESPOL), Campus Gustavo Galindo, 09-01-5863 Guayaquil, Ecuador
+\\
+\textbf{5} Department of Data Analysis and Mathematical Modelling, Ghent University, Coupure Links 653, 9000 Ghent, Belgium
+\\
+\bigskip
+
+% Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
+% 
+% Remove or comment out the author notes below if they aren't used.
+%
+% Primary Equal Contribution Note
+%\Yinyang These authors contributed equally to this work.
+
+% Additional Equal Contribution Note
+% Also use this double-dagger symbol for special authorship notes, such as senior authorship.
+%\ddag These authors also contributed equally to this work.
+
+% Current address notes
+%\textcurrency Current Address: Dept/Program/Center, Institution Name, City, State, Country % change symbol to "\textcurrency a" if more than one current address note
+% \textcurrency b Insert second current address 
+% \textcurrency c Insert third current address
+
+% Deceased author note
+%\dag Deceased
+
+% Group/Consortium Author Note
+%\textpilcrow Membership list can be found in the Acknowledgments section.
+
+% Use the asterisk to denote corresponding authorship and provide email address in note below.
+* stijn.bruneel@ugent.be
+
+\end{flushleft}
+% Please keep the abstract below 300 words
+\section*{Abstract}
+Video monitoring is a rapidly evolving tool in aquatic ecological research because of its non-destructive ability to assess fish assemblages. 
+Nevertheless, methodological considerations of video monitoring techniques are often overlooked, especially in more complex sampling designs, causing inefficient data collection, 
+processing, and interpretation. In this study, we discuss how video transect sampling designs could be assessed and how the inter-observer variability, design errors and sampling variability should be quantified and accounted for. The study took place in the coastal areas of the Galapagos archipelago and consisted of a  hierarchical repeated-observations sampling design with multiple observers. 
+
+Although observer bias was negligible for the assessment of fish assemblage structure, diversity and counts of individual species, sampling variability caused by simple counting/detection errors, observer effects and instantaneous fish displacement was often important. Especially for the counts of individual species, sampling variability most often exceeded the variability of the transects and sites. An extensive part of the variability in the fish assemblage structure was explained by the different transects (13\%), suggesting that a sufficiently high number of transects is required to account for the within-location variability. Longer transect lengths allowed a better representation of the fish assemblages as sampling variability decreased by 33\% if transect length was increased from 10 to 50 meters. However, to increase precision, including more repeats was typically more efficient than using longer transect lengths. 
+
+The results confirm the suitability of the technique to study reef fish assemblages, but also highlight the importance of a sound methodological assessment since different biological responses and sampling designs are associated with different levels of sampling variability, precision and ecological relevance. Therefore, besides the direct usefulness of the results, the procedures to establish them may be just as valuable for researchers aiming to optimize their own sampling technique and design.
+
+\section*{Highlights}
+\begin{itemize}
+   \item Observer bias is generally limited, but sampling variability is extensive
+   \item Assemblage structure and diversity estimates are more reliable than estimates of abundance per species
+   \item Species-specific observer effects and detectability are important
+   \item Longer transect lengths improve the representativeness of sampling units
+   \item To improve precision more repeats are preferred over longer transects 
+\end{itemize}
+
+%\linenumbers
+
+% Use "Eq" instead of "Equation" for equation citations.
+\section{Introduction}
+\label{intro}
+
+Anthropogenic pressures are known to affect the physical habitat and chemical water conditions of many reef ecosystems \cite{Halpern2007}. Although biotic indicators, such as the diversity and structure of reef fish assemblages, have proven useful to quantify environmental and ecological changes \cite{Ford2018,Gonzalez-Sanson2010,Guillemot2014}, the conclusiveness of any ecological or behavioral field study heavily depends on a proper choice of the sampling method and sampling design. When assessing the abundance, diversity and species composition of fish assemblages, visual census has been the preferred non-destructive method, with stationary point counts and strip transects being the most common options \cite{Caldwell2016,Denny2003,Jones2015a}. As such methods require substantial training and considerable time in the field, the number of locations that can be sampled is limited \cite{Thompson1997}. In addition, such traditional visual census techniques are often characterized by high detection heterogeneity, caused by observer bias (Table \ref{tab:gloss}) and observer effects (Table \ref{tab:gloss}) \cite{Dickens2011,Langlois2010,Lindfield2014,McCormick1987EstimatingStrip-transects,Pais2017,Willis2000,Willis2001}. Observer effects are often considered as the spatiotemporal variation in observer bias due to gained experience or replacement of observers \cite{Thompson1997}. We argue, however, that the proceeding of sampling through time and space will not only alter the perception of the environment, but also the environment itself. More specifically, observers might attract or deter species \cite{Kulbicki1998,Usseglio2015QuantifyingApproaches}, while also gaining more experience and an altered perception \cite{Williams2006}. Therefore, although partly related, observer bias is considered the result of consistent differences in the perception of a unique set of observers, while observer effects are considered the result of differences in observers' perception through time and space in combination with fish species-specific traits such as detectability (Table \ref{tab:gloss}) and response to presence of observers. These observer effects in combination with random counting/detection errors and \textquote{random} or instantaneous fish displacement (see Table \ref{tab:gloss} and \nameref{ap:add:instant}) at very short time scales (e.g. minutes) constitute the sampling variability which is referred to as baseline or instantaneous variability in observational fish assemblage studies \cite{McClanahan2007,Irigoyen2013VariabilityCensus}. This sampling variability should be accounted for (or at least acknowledged) when designing sampling schemes and interpreting data \cite{McClanahan2007,Irigoyen2013VariabilityCensus}. 
+
+Nowadays, stationary video cameras are often used to remove observer bias, to reduce the impact on fish behavior and to be able to store the video data for future studies and validation \cite{Cappo2006,Cappo2011,Schmid2017}. Nevertheless, stationary cameras often only provide a limited view of the study area as only small patches are monitored, and are therefore of limited use when a rapid, yet spatially extensive survey of a study area has to be done \cite{Willis2000}. Baited stationary cameras remediate this limitation by attracting nearby fish thereby providing a more representative assessment of the local fish assemblages \cite{Harvey2007}. However, due to the point-based nature of these camera-systems, it remains difficult to accurately account for habitat heterogeneity and assess habitat preferences (especially of less mobile species) \cite{Andradi-Brown2016,Willis2000}. Because fish species, and in particular reef fish, are often strongly associated with specific micro-habitats \cite{Chapman2000}, a more mobile approach may often be more appropriate for more cost-effective monitoring of fish densities \cite{Mallet2014}. Video transects still suffer from observer bias and observer effects, but the possibility to store video data for later analysis, to reduce the amount of time spent on field work and to standardize observations, are important incentives to upgrade traditional visual census techniques \cite{Pelletier2011,Tessier2013}. Video transects have already been applied in numerous studies \cite{Mallet2014,Wartenberg2015}, and remotely operated vehicles (ROVs) are likely to soon replace camera-operating humans in a variety of applications \cite{Schramm2020,Sward2019}. Although studies comparing different video and other visual census techniques are becoming more frequent \cite{Andradi-Brown2016,Langlois2010,Tessier2013,Watson2005,Watson2010,Wilson2018}, few have focused on the methodological aspects of video transects, such as observer bias (Table \ref{tab:gloss}), design errors (Table \ref{tab:gloss}), sampling variability, counting metrics, data types and data transformations \cite{Bernard2013,Goetze2019}. 
+Video transects are often considered a simple extension of visual census transects, although the ability to store and standardize video observations (see \nameref{ap:add:applic}) justifies a specific methodological assessment of the technique. The aim of this study was therefore to provide a detailed assessment of the aforementioned methodological aspects and overall suitability of video transects to study reef fish assemblages. 
+
+Since the results of methodological studies are meant to steer the methodology used in applied studies, it is crucial to understand and limit avoidable differences between both types of studies. On the one hand, applied ecological studies aiming to understand ecological processes and how they are affected by management practices typically make use of multiple random transects within one location to obtain a general picture of the local fish assemblage, each transect being covered only once by a single observer \cite{Denny2003,Labrosse2002,Ruttenberg2005}. The lack of repeated observations renders any assessment of the variability related to observers, transects and methodological parameters difficult \cite{Katsanevakis2012}. On the other hand, applied studies are often characterized by complex hierarchical designs to account for ecological gradients, while methodological studies typically entail more simple sampling designs \cite{Bijoux2013a,Dickens2011,Watson2005}, introducing a conceptual mismatch between both.
+Besides differences in the sampling design, there are often also differences in the statistical tools used by both types of studies. While applied studies typically involve either multivariate (for fish assemblages) and/or univariate (for single species) models \cite{Andradi-Brown2016,Denny2003,Samoilys2000,Zintzen2012}, methodological studies generally apply the latter \cite{Pelletier2012,Edgar2004,Langlois2010,Thompson1997}, but there are exceptions which integrate both \cite{Cappo2011,Gladstone2012,Lindfield2014}. 
+
+To ensure a close connection between methodology and application while maintaining a sound statistical basis to assess the importance of different factors, the present study laid out a hierarchical design of repeated fixed video transects, with each transect being covered multiple times by multiple observers. Although repetitions of transects are not common in literature, they were necessary here to provide answers to the following research questions, which are of interest for both non-repetitive and repetitive studies. The innovative, yet complex design of this study can provide new insights in the methodology of observation techniques, yet requires multiple advanced statistical methods. An overview of these methods and reasoning behind their use is provided in section \ref{Data_analysis}. The following research questions were addressed for both multivariate (for fish assemblages) and univariate (for single species) variables of interest.
+
+\begin{description}
+  \item[$\bullet$] Are there (species-specific) observer effects which cause dependence between observations?
+  \item[$\bullet$] How important are observer bias and sampling variability? 
+  \item[$\bullet$] How important are the methodological parameters transect length, number of repeats, counting metric and data type/ transformation? 
+\end{description}
+
+\begin{table}[h]
+\centering
+\caption{{\bf Glossary}} 
+\scalebox{0.7}{%
+{\renewcommand\arraystretch{1.25}
+\begin{tabular}{|l|l|l|} \hline
+Design error & \multicolumn{2}{p{12cm}|}{\raggedright Error associated with the methodological characteristics of the sampling technique (e.g. transect length, swimming speed)} \\ \hline
+Detectability & \multicolumn{2}{p{12cm}|}{\raggedright Probability of observing a particular species during a given sampling occasion conditional on its presence at that location \cite{Kulbicki1998,MacNeil2008}} \\ \hline
+Instantaneous variability & \multicolumn{2}{p{12cm}|}{\raggedright Sampling variability caused by the instantaneous displacement of fish, observer effects and random counting/detection errors \cite{Irigoyen2013VariabilityCensus,McClanahan2007}} \\ \hline
+Observer bias & \multicolumn{2}{p{12cm}|}{\raggedright Effect of consistent differences in the perception of a unique set of observers on fish count
+} \\ \hline
+Observer effects & \multicolumn{2}{p{12cm}|}{\raggedright The effect of differences in observers' perception through time and space in combination with fish species-specific traits such as detectability and response to presence of observers on fish count
+} \\ \hline
+\end{tabular}}}
+\label{tab:gloss}
+\end{table}
+
+\section{Materials and methods}
+\label{matmet}
+\subsection{Data collection}
+
+The study took place in the Galapagos archipelago as part of an extensive project to map and monitor the unique, yet fragile, coastal ecosystems of the islands. At ten locations, fixed transects were used to assess reef fish assemblages in rocky habitats close to the coast. The locations (n=10) were situated along the coasts of two cities of two different islands; Puerto Ayora (Academy Bay) on Santa Cruz island (n=5) and Puerto Velazco Ibarra on Floreana island (n=5) (\nameref{fig:MAP}). In each location, 3 transects with a length of 50 meters each were laid out using ropes. For fish to be included they had be recorded within 2.5 m of either side of the transect line (area = 50 x 5 = 250 m$^{2}$). Observers and image analysts were trained to recognize whether fish had to be considered, depending on the estimated distance from the rope. It should be noted that, despite their training, observers are known to over or underestimate the distance from the rope, which will affect the inter-observer variability and/or sampling variability to some extent \cite{Bernard2013,Harvey2004AAbundance}. All transects were monitored at a constant depth of 1.5 meter, parallel to the coastline, and only locations with a limited exposure to waves were selected to guarantee the safety of the observers and to avoid predominant effects of wave exposure on the structure of fish assemblages. All transects were approximately 20 meters apart. To quantify observer bias and sampling variability, a sufficiently high number of repeats was required, yet the maximal number of observations per day was limited by light availability and fatigue of the observers. Balancing these requirements resulted in each of the transects being recorded six consecutive times with single GoPro cameras (GoPro Hero 5 Black, 1080p, 60fps, wide FOV) by three different observers equipped with a mask and snorkel. Hence, 2 islands x 5 locations x 3 transects x 3 observers x 6 repeats yielded 540 observations (Fig. \ref{fig:sampling_designv2}). 
+
+The observers covered the transects in a browsing fashion, similar to the widely used S-type transects introduced by \cite{Pelletier2011}. Observers browse through the transect at a fixed speed, but varying angle and can zoom in if needed to find individuals hiding in crevices. This S-transect was chosen over the more standarized I-transect with fixed angle and without zooming to enable detection of more individuals and species \cite{Mallet2014,Pelletier2011}. Transects were placed during low tide and monitoring occurred during flood tides of consecutive days from the $19^{th}$ until the $31^{st}$ of August 2017. Per day, one site was surveyed. The duration of each observation was approximately 4.6 minutes, but varied ($\pm 0.7$ minutes). The time between successive observations was at least one minute. The duration between observations was most often too short to consider observations as independent \cite{Emslie2018ReefRecover}. These dependencies between observations are described as observer effects, which will be discussed further. Observers covered the transects back to back, so three times in one direction and three times in the other direction. The analysis of the videos included species identification and the estimation of the number of individuals per species. Each fish identification and count was labeled with a time stamp to allow later splitting of the data in different subsets. Fish were counted in such a way that both MaxCount (total number of individuals per species) and MinCount (maximum number of individuals per species in one frame, also referred to as MaxN: to avoid double counting) 
+could be determined (see section \nameref{Video_analysis}). Since MaxCount was found most appropriate for our video transects (see section \ref{Variabilityinthestructureoffishassemblages}), which is in line with results from previous studies on video transects \cite{Mallet2014,Wartenberg2015}, it was used instead of MinCount. The videos were randomly assigned to one of two video analysts to reduce any potential experience bias from improving identification skills \cite{Williams2006}. The video analysts had a similar level of experience. Each video was only analyzed once. Each observation was split up in 5 distance intervals (0-50, 5-45, 10-40, 15-35, 20-30 meters), based on the time stamps of the fish identifications, to assess the added value of increasing transect length. The exact distance could not be determined, but the observers aimed to maintain a constant swimming speed, so distance could be estimated from the time stamps. Although the inability to provide exact distances will introduce some additional variability that cannot be quantified, we assumed this variability to be stochastic and limited as observers were specifically trained to maintain a constant swimming speed. Because we aimed to provide a quick and mobile assessment of the local fish assemblages and limit the sampling effort per site, it was decided to count all fish species \cite{Bernard2013,Watson2010} and not to count discrete groups of species in transects of different, earlier established, optimal designs \cite{McClanahan2007,Wilson2018}. 
+All methods were carried out in accordance with the relevant guidelines and regulations of the Galapagos National Park Directorate under research permit PC-02-19. All experimental protocols were reviewed and approved by the Galapagos National Park Directorate Applied Research Department, which assesses animal care in research activities.
+
+% Place figure captions after the first paragraph in which they are cited.
+\begin{figure}[h!]
+  \centering\includegraphics[scale=0.5]{sampling_designv2.pdf}
+  \caption{{\bf Sampling design of the study}. Three spatial nested levels can be identified: Island, Location (Loc) and Transect (Tr). Each observer (Obs) covered each transect six times. For clarity reasons, not all subdivisions are presented in this figure. All transects of the different locations of island A were covered by the three observers and the locations of island B were further subdivided in transects, each covered by all three observers. The sampling design was balanced.} 
+  \label{fig:sampling_designv2}
+\end{figure}
+
+% For figure citations, please use "Fig" instead of "Figure".
+
+\subsection{Data analysis}
+\label{Data_analysis}
+
+To understand patterns in the data, models for variation partitioning were developed. For this models to be relevant for methodological assessments, it is important to translate model results back to the context of data collection and sampling design (Fig. \ref{fig:Variability_framework}). Although ideally the inter-observer variability of our models would only contain the observer bias, the potential temporal dependence of observations over observers might cause the estimates to be inflated by the variability caused by observer effects and instantaneous fish displacement. Indeed, because observers covered transects sequentially the disturbances caused by the first observer might affect the observations of the next observers. Furthermore, it is likely that in case an individual fish was recorded during a certain observation, it might still be there during the subsequent observation because it is foraging or hiding for predators for a specific period of time. If this period of residence is longer than the time lapse between observations, the chance that a specific observer encounters the species after it was observed during the previous observation becomes inflated (this inflated chance is the result of the non-randomness of instantaneous fish displacement). The remaining sampling variability is contained within the residual variability. 
+
+\begin{figure}[h!]
+  \centering\includegraphics[scale=0.42]{Variability_framework4}
+  \caption{{\bf Methodological framework of the study}. Variation partitioning using PERMANOVA (permutational multivariate analysis of variance), CAP (canonical analysis of principal components), and GLMM (generalized linear mixed models) to quantify the different sources of variation for multivariate and univariate data respectively. The modeled inter-observer variability not only comprises the observer bias, but also sampling variability, i.e. observer effects and instantaneous fish displacement. The residual variability comprises the remaining sampling variability. ACF (auto-correlation functions), GLMM and partial Mantel correlograms to assess observer effects. Precision analysis was used to assess the effect of number of repeats and transect length on quantification and reduction of sampling variability.} 
+  \label{fig:Variability_framework}
+\end{figure}
+
+To assess the independence of successive observations and to evaluate the importance of observer effects, auto-correlation functions and binomial models were developed (section \ref{mandm:indep}). To quantify sampling variability and to evaluate the methodological parameters, models allowing to assess univariate (section \ref{mandm:univar}) and multivariate variability (section \ref{mandm:multivar}) were developed. Transect length and number of repeats were evaluated through assessment of the design error (section \ref{mandm:designerror}) and precision estimates (section \ref{mandm:precision}). Since independence and design error (section \ref{mandm:indep} and \ref{mandm:designerror}) need to be considered in model development, they were evaluated prior to the assessments of univariate and multivariate variability and precision (section \ref{mandm:univar}, \ref{mandm:multivar} and \ref{mandm:precision}). 
+
+All analyses were performed using the R software (version 3.6.2, R Developer Core Team, R Foundation for Statistical Computing, Vienna, Austria) and the Primer v6 multivariate statistics package \cite{Clarke2006} with PERMANOVA add-on \cite{Anderson2008}.
+
+\subsubsection{Independence of observations and observer effects}
+\label{mandm:indep}
+
+To assess whether successive observations within the same transect were independent, the auto-correlation functions (ACF; $r_{k,j}$) of the counts of each species of the 18 successive observations ($Y_{1,j}$, $Y_{2,j}$, ..., $Y_{i,j}$, ..., $Y_{18,j}$) per transect $j$ for lag $k$ (number of observations between two observations), were determined,  
+\begin{equation}
+\label{eq:ACF}
+\overline{r_{k,j}}=\frac{\sum_{i=1}^{18-k}(Y_{i,j}-\overline{Y_{j}})(Y_{i+k,j}-\overline{Y_{j}})}{\sum_{i=1}^{18}(Y_{i,j}-\overline{Y_{j}})^{2}} 
+\end{equation}
+In addition, for each observation lag $k$, the average ACF of the count of each species over the transects was determined, providing detailed information on the temporal scale at which repeated observations exhibited interdependence. Finally, to assess whether individual species were affected in their behavior by the presence of an observer, binomial mixed models were constructed (Linearity between predictors and the logit of the outcomes was evaluated using scatter plots). Models were constructed for the 18 successive observations per transect and for the 6 successive observations per observer and per transect. The binomial mixed models had the Presence/Absence of the concerning species ($Y_{1,j}^{'}$, $Y_{2,j}^{'}$, ..., $Y_{18,j}^{'}$) as response, Order or sequence number of the observation $i$ as a fixed effect and transect $j$ as a random effect. 
+\begin{equation}
+\label{eq:BinMODEL}
+\begin{array}{l}
+Y_{i,j}^{'}\sim Binomial(n_{i,j},p_{i,j})\\
+\log(\frac{p_{i,j}}{1-p_{i,j}})=\alpha+\beta\times Order_{i,j}+b_{j}\times Transect_{j} 
+\end{array}
+\end{equation}
+Species which were only observed during the first of 18 observations were likely scared off by observers, while species which were only observed during the last observations were likely attracted by the observers. Patterns for single observers could indicate that observers specifically targeted or avoided areas where species were found earlier. For these analyses, all series of observations which had at least one observed presence of the species concerned were considered. A literature-based score of reaction-to-observer was compared with the results of these models \cite{Humann2003ReefGalapagos}. 
+The level of independence of the observed structure of fish assemblages was assessed using a partial Mantel correlogram \cite{Legendre2012}. The correlation between (1) the number of repeats/lags between observations and (2) the Bray-Curtis dissimilarity values was determined while partialling out the effect 
+the sampling unit (i.e. transect) and observer might have had (categorical variable included as matrix of dummy variables). 
+
+\subsubsection{Design error}
+\label{mandm:designerror}
+
+Observed absences (zeros) often have multiple origins: True zeros may either be structural, i.e. related to habitat unsuitability, environmental conditions and/or dispersal limitations; or they can be \textquote{random}, i.e. related to sampling variability. False zeros may be related to counting errors, observer effects or errors in the experimental design \cite{Blasco-Moreno2019}. An important design error may arise from the choice of transect length. If transect lengths are too short, many observations may contain no species at all and there may also be pairs of observations having no or only few species in common, leading to uninformative dissimilarity values and questionable multivariate analyses \cite{Clarke2006,McCormick1987EstimatingStrip-transects}. In those cases, lack of information within individual observations may require pooling sets of observations \cite{Anderson2015}. Therefore, to assess whether the transects were long enough to ensure that observations could be treated as solid repeats rather than subsamples, Monte Carlo simulations were performed during which percentage difference (Bray-Curtis) dissimilarity matrices were calculated \cite{Anderson2015}. Permutation scenarios (10$^{4}$ permutations) included the random pooling of 1 to 6 or 1 to 18 observations (mean) for different transect lengths and over two different spatial factors (i.e. Transects and Locations, respectively). The permutations and the calculation of the dissimilarity values were obtained within each level of the considered factor, allowing to assess the dissimilarity in recorded fish assemblages among different subsets of pooled observations for a given Transect or Location. Since there were 30 transects and 10 locations, 30 and 10 series of 10$^{4}$ permutations each were conducted. Finally, the average frequency distributions of the dissimilarity values were calculated, to assess the overall trend in dissimilarity with increasing transect length and number of pooled observations.
+
+\subsubsection{Variability in abundance and diversity estimates}
+\label{mandm:univar}
+
+The importance of the different grouping factors (Location, Transect and Observer) for the estimates of species density and Shannon diversity were assessed using linear mixed models.
+To relate the counts (MaxCount) of individual species to the different factors, zero-inflated generalized linear mixed models (GLMM) were developed. The output of models with Conway-Maxwell-Poisson (COM-Poisson) distribution with log-link were reported. The COM-Poisson distribution generalizes the Poisson distribution by adding a parameter to model both underdispersion and overdispersion \cite{Lynch2014}, while the negative binomial only accounts for overdispersion \cite{Imoto2014ADistribution}. Since one-third of the species distributions were underdispersed and two-thirds overdispersed, the COM-Poisson distribution seemed most suitable. In addition, the count COM-Poisson models outperformed, based on AIC, count models using a Poisson or negative binomial distribution for most species. A subset of four species, with the potential to serve as indicator species for differences in the structure of fish assemblages, were selected to provide a more in-depth assessment (for a more detailed description, see \nameref{indicatorspecies2}). Both types of models had Island as fixed effect, Location and Transect as nested random effects and Observer as a crossed random effect. The Intraclass Correlation Coefficient (ICC) was estimated to quantify the proportion of variance explained by the different random factors  \cite{Nakagawa2017},
+\begin{equation}
+\label{eq:ICC}
+\begin{array}{l}
+ICC_{r}=\frac{\sigma_{r}^{2}}{\sum\sigma_{r}^{2}+\sigma_{\varepsilon}^{2}}\\
+ICC_{Total}=\frac{\sum\sigma_{r}^{2}}{\sum\sigma_{r}^{2}+\sigma_{\varepsilon}^{2}}\\
+ICC_{\varepsilon}=\frac{\sigma_{\varepsilon}^{2}}{\sum\sigma_{r}^{2}+\sigma_{\varepsilon}^{2}}=1-ICC_{Total}\\
+ICC_{Sampling}=ICC_{\varepsilon}+ICC_{Observer:Transect}+ICC_{Observer:Location}
+\end{array}
+\end{equation}
+with $\sigma_{r}^{2}$ the variance of random factor $r$ and $\sigma_{\varepsilon}^{2}$ the residual variance. ICC$_{\varepsilon}$ measures the proportion of unexplained variability, while ICC$_{Sampling}$ measures the proportion of sampling variability. 
+The lmer and glmmTMB R packages were used to develop the linear and generalized linear mixed models, respectively \cite{Brooks2017}.
+
+\subsubsection{Variability in the structure of fish assemblages}
+\label{mandm:multivar}
+
+The observed fish assemblages (MaxCount) were assessed using PERMANOVA models (10$^{4}$ permutations under a reduced model). 
+Data was fourth-root transformed and Bray-Curtis dissimilarities were calculated. The models had Island as fixed factor, Location and Transect as nested random factors and Observer as crossed random factor. The addition of the factor Video Analyst was evaluated separately because of its unbalanced nature. The square root components of variation ($\sigma^{'}$) were estimated by equating the mean squares of the PERMANOVA models to their expectations \cite{Anderson2008}. To determine the proportion of the variability explained by the different grouping factors, the percentage of variation of each component to the total variation was used (correction for different degrees of freedom among grouping factors). The combined contribution of $\sigma^{'}_{Residuals}$, $\sigma^{'}_{Observer:Location}$ and $\sigma^{'}_{Observer:Transect}$ was used as a proxy of the proportion of sampling variability (see section \ref{mandm:univar}). R$^{2}$ values (ratio of sum of squares of the grouping factors over the total sum of squares: no correction for different degrees of freedom among grouping factors) were estimated to assess the effect of longer transect lengths, different metrics (MinCount and MaxCount), data transformations (fourth root, logarithm and presence/absence) and dissimilarity indices (Bray-Curtis, Euclidean, Gower and Kulczynski) on the goodness-of-fit of the PERMANOVA models. Although the choice for a data transformation or dissimilarity index is highly dependent on the research question, researchers might still be interested in their effect on model fit. In addition, the considered transformation of abundance data to presence-absence data entails a broader discussion regarding the way data should be collected (i.e. identification and counting versus only identification respectively). Finally, following the predominant terminology used in literature, the multivariate analyses of abundance and presence/absence data will yield insights in the structure and species composition of fish assemblages, respectively. To evaluate the performance of a specific methodological parameter, all possible combinations of parameter values were tested, yielding 120 PERMANOVA models. CAP (Canonical Analysis of Principal components) was applied over the different transect lengths to assess the distinctiveness of the different Locations and Transects using the classification error after leave-one-out cross-validation \cite{Anderson2003}.
+
+\subsubsection{Precision estimates of abundance, diversity and fish assemblage structure}
+\label{mandm:precision}
+
+Precision for both the univariate, i.e. abundance and diversity, and multivariate, i.e. fish assemblage structure, variables was estimated to determine the required number of repeats and required transect length to account for sampling variability. Univariate precision was determined as the inverse of the standard error (of the mean) to mean ratio \cite{Andrew1987}. The precision for species density, Shannon diversity and count (MaxCount) of the observed species was determined using permutations (n=10$^{4}$) over the transects using the 18 observations per transect \cite{Manly1992}. 
+To compare the effect of more repeats and longer transect lengths, the precision was assessed as a function of the total swim distance, determined as the number of repeats multiplied by the transect length. The effect of turbidity on the precision of the species density and Shannon diversity was assessed after classifying the 30 transects in three equally sized groups based on the rank-order of the level of visually graded turbidity. 
+
+For the multivariate analysis, the square root of the residual mean square of the PERMANOVA models divided by the number of repeats was used as a measure of multivariate pseudo error variance (multSE) \cite{Anderson2015}. This proxy of multivariate precision was evaluated against transect length and number of repeats. For each transect length, permutations (n=10$^{4}$) over the transects using the 18 observations per transect were applied to assess the effect of different numbers of repeats.
+
+% Results and Discussion can be combined.
+\section{Results}
+
+\subsection{Independence of observations and observer effects}
+\label{Independenceofobservations}
+
+Although some evidence of temporal auto-correlation was found, this was only significant for two species (\textit{p}$<$0.05), the Harlequin wrasse (\textit{Bodianus eclancheri}) and the Pacific dog snapper (\textit{Lutjanus novemfasciatus}) (\nameref{ACF}). The order of the observations, determined using all 18 observations of each transect (\nameref{BIN_MODEL_SIGN}; mixed binomial models), had a significant negative effect on the probability of observing the Cortez rainbow wrasse (\textit{Thalassoma lucasanum}, \textit{p}$<$0.001), Marbled goby (\textit{Gobio manchada},  \textit{p}$=$0.015) and Stone scorpion fish (\textit{Scorpaena mystes},  \textit{p}$=$0.006), suggesting that these fish species were scared away by observers. By contrast, the order of the observations had a significant positive effect on the probability of observing the Amarillo snapper (\textit{Lutjanus argentiventris}, \textit{p}$=$0.048), Galapagos triplefin blenny (\textit{Lepidonectes corallicola}, \textit{p}$=$0.001), Mexican hogfish (\textit{Bodianus diplotaenia}, \textit{p}$=$0.007), Panamic sergeant major (\textit{Abudefduf troschelii}, \textit{p}$<$0.001) and White salema (\textit{Xenichthys agassizii}, \textit{p}$=$0.034), suggesting that these fish species were attracted by the observers. For the mixed binomial models using all 6 observations of each transect per observer, the order of the observations only had a significant positive effect on the probability of observing the Panamic sergeant major (\textit{Abudefduf troschelii}, \textit{p}$=$0.007) and Reef cornet fish (\textit{Fistularia commersonii}, \textit{p}$=$0.048) and a marginally positive effect on the Bravo clinid (\textit{Gobioclinus dendriticus}) (\textit{p}$=$0.078). The order of the observations had a significant negative effect on the probability of observing the Blue and gold snapper (\textit{Lutjanus viridis}, \textit{p}$=$0.024) and Yellowtail damselfish (\textit{Chrysiptera parasema}, \textit{p}$=$0.001). For 9 out of 11 species with significant observer effects, the literature-based score of the reaction-to-observer corresponded with the observed fish behavior towards observers (Table G.2). There was a discrepancy in the observed effects and literature-based score for the Amarillo snapper and Yellowtail damselfish. The partial Mantel correlogram indicated that temporal dependencies in the structure of fish communities were not significant (\textit{p}$<$0.001), suggesting that observations could be treated as independent. 
+
+\subsection{Design error}
+
+Pooling observations had a clear effect on the frequency distributions of the dissimilarity values for both spatial factors, Transect and Location, and for all different transect lengths (10 to 50 meters) (Fig. \ref{fig:samples_pooled}). As expected, the observations became more similar (lower dissimilarity values) when pooling observations, a trend which was most pronounced for the longer transect lengths (Fig. \ref{fig:samples_pooled}). However, even at transects of 10 meters, hardly any uninformative dissimilarity values were obtained (\nameref{tab:pooling_observations_location} and \nameref{tab:pooling_observations_transect}).  
+Therefore, there was no indication that the observations had to be pooled and the original observations could be used for the multivariate models. The higher number of lower dissimilarity values when pooling within Transect compared to pooling within Location was expected, since the repeated observations of a single sampling unit (Transect) are likely to be more similar than the observations of two different sampling units within the same location. Because of the clear difference between transects of the same location, it was decided to only determine the precision within Transect (over the different observers) and not within Location. Hence, per response variable, 30 (=number of transects) precision curves could be constructed (see section \ref{res:precision}).
+
+\begin{figure}[h!]
+  \centering\includegraphics
+  {samples_pooled_N.pdf}
+  \caption{{\bf Pooling observations}. Histograms representing the frequency distributions of dissimilarity values (fourth-root transformed, Bray-Curtis) for different pooling scenarios. Low dissimilarity values indicate that observations are relatively similar. Different spatial scales (Location versus Transect), Transect lengths (10 versus 50 meters) and number of observations to be pooled (1 to 6) were assessed. As observations within transects and locations are compared, we would expect relatively low dissimilarity values.}
+  \label{fig:samples_pooled}
+\end{figure}
+
+\subsection{Variability in abundance and diversity estimates}
+
+The ICC$_{Total}$, representing the proportion of the variability of the species density and Shannon diversity explained by the factors Location, Transect, Observer and their interaction increased with increasing transect length
+(Table \ref{mixed_model_SR_ICC_Table_island_fixed}). For both the species density and Shannon diversity the proportion of sampling variability decreased with increasing transect length. For species density, there was a slight decrease in the proportion of variability explained by Location, but this was compensated by the increase in the proportion of variability explained by Transect. The factors Observer and interaction Observer:Location explained none or only little of the variability of the species density, but the proportion of variability explained by the interaction Observer:Transect was relatively high. For a transect length of 10 and 20 meters it was even higher than the proportion of variability explained by Transect.
+
+Similarly, the proportion of variability of the Shannon diversity explained by Transect increased with increasing transect length (Table \ref{mixed_model_H_ICC_Table_island_fixed}). The proportion of variability explained by Location decreased rapidly, while the proportion of variability explained by the interactions Observer:Transect and Observer:Location showed a clear increase. The latter were even higher than the proportion of variability explained by Location from transect lengths 20 to 50 meters. 
+
+\renewcommand{\arraystretch}{1.25}
+\begin{table}
+\centering
+\scriptsize
+\caption{{\bf Model of the observed species density}. Model output (ICC (Intraclass Correlation Coefficient) of the random effects, total ICC explained by the factors of the model and ICC associated with the sampling variability) for a linear mixed model with species density as response, Island as fixed effect, Location and Transect as nested random effects and Observer as crossed random effect. Transect lengths of 10, 20, 30, 40 and 50 meters were assessed.}
+\label{mixed_model_SR_ICC_Table_island_fixed}
+\begin{tabular}{l|ccccc} 
+\toprule
+                  & 10 meters               & 20 meters               & 30 meters               & 40 meters               & 50 meters                \\ 
+\midrule
+ICC$_{Transect}$          & 0.073                  & 0.116                  & 0.145                  & 0.180                  & 0.204                   \\ 
+ICC$_{Location}$          & 0.369                  & 0.354                  & 0.345                  & 0.351                  & 0.345                   \\ 
+ICC$_{Observer}$          & 0.000                  & 0.003                  & 0.010                  & 0.010                  & 0.007                   \\ 
+ICC$_{Observer:Transect}$ & 0.103                  & 0.131                  & 0.092                  & 0.112                  & 0.099                   \\ 
+ICC$_{Observer:Location}$ & 0.015                  & 0.000                  & 0.004                  & 0.000                  & 0.007                   \\ 
+ICC$_{Total}$             & 0.560                  & 0.604                  & 0.596                  & 0.653                  & 0.662                   \\
+ICC$_{Sampling}$             & 0.558                  & 0.527                  & 0.500                  & 0.459                  & 0.444                   \\
+\bottomrule
+\end{tabular}
+\end{table}
+\renewcommand{\arraystretch}{1}
+
+\renewcommand{\arraystretch}{1.25}
+\begin{table}
+\centering
+\scriptsize
+\caption{{\bf Model of the observed Shannon diversity}. Model output (ICC (Intraclass Correlation Coefficient) of the random effects, total ICC explained by the factors of the model and ICC associated with the sampling variability) for a linear mixed model with Shannon diversity as response, Island as fixed effect, Location and Transect as nested random effects and Observer as crossed random effect. Transect lengths of 10, 20, 30, 40 and 50 meters were assessed.}
+\label{mixed_model_H_ICC_Table_island_fixed}
+\begin{tabular}{l|ccccc}
+\toprule
+                  & 10 meters & 20 meters & 30 meters & 40 meters & 50 meters  \\ 
+\midrule
+ICC$_{Transect}$          & 0.184    & 0.261    & 0.380    & 0.420    & 0.442     \\ 
+ICC$_{Location}$          & 0.104    & 0.044    & 0.000    & 0.000    & 0.000     \\ 
+ICC$_{Observer}$          & 0.001    & 0.000    & 0.009    & 0.008    & 0.010     \\ 
+ICC$_{Observer:Transect}$ & 0.082    & 0.119    & 0.066    & 0.078    & 0.161     \\ 
+ICC$_{Observer:Location}$ & 0.065    & 0.081    & 0.081    & 0.110    & 0.105     \\ 
+ICC$_{Total}$             & 0.436    & 0.505    & 0.536    & 0.616    & 0.718     \\
+ICC$_{Sampling}$             & 0.711    & 0.695    & 0.611    & 0.572    & 0.548     \\
+\bottomrule
+\end{tabular}
+\end{table}
+\renewcommand{\arraystretch}{1}
+
+The proportion of variability of the counts of the potential indicator species explained by the factors Location, Transect, Observer and their interaction did not show any consistent trend with increasing transect length (\nameref{glmmTMB_ind_species_CAP_table}). 
+The proportion of variability explained by Observer (i.e. observer bias) was lower than the proportion of variability explained by Transect and Location for 34 out of 36 species. However, interaction effects of Observer with either Transect or Location were often important as the proportion of variability explained by the interactions Observer:Transect and Observer:Location, exceeded the proportion of variability explained by Transect and Location for 18 out of 36 species. For 28 out of 36 species the sampling variability exceeded the variability explained by Transect and Location (\nameref{glmm_all_species_table_island_fixed}). 
+
+\subsection{Variability in the structure of fish assemblages}
+\label{Variabilityinthestructureoffishassemblages}
+
+For all different transect lengths, the factors Island, Location and Transect explained a larger amount of the observed variability than the factor Observer and its interactions (largest proportion of $\sigma^{'2}$: estimates of components of variation) in the PERMANOVA models (10$^{4}$ permutations) (Table \ref{PERMANOVAvar}). The factor Observer only explained a limited proportion of the variability (between 0 and 0.3 \%). However, a relatively large part of the variability (between 0.9 and 4.4 \%) was explained by the interactions of Observer with Location and Observer with Transect. With increasing transect length the proportion of sampling variability decreased (from 25.9 to 17.4 \%), while the proportion of variability explained by the factors Location and Transect increased (from 8.2 to 12.5 \% and from 10.0 to 12.8 \% respectively). 
+Inclusion of the factor Video Analyst had a non-significant and negligible effect 
+(\nameref{PERMANOVA_Video_analyst}). 
+
+\renewcommand{\arraystretch}{1.5}
+\begin{table}
+\centering
+\scriptsize
+\caption{{\bf Multivariate variation of the fish assemblage structure}. Square root estimates of components of variation ($\sigma^{'}$) and %goodness-of-fit ($R^{2}$) 
+the percentage of variation of each component to the total variation of PERMANOVA models  based on Bray-Curtis dissimilarities (fourth-root transformed) with Island as fixed factor, Location and Transect as nested random factors and Observer as crossed random factor for transect lengths of 10, 20, 30, 40 and 50 meters.*\textit{p}$<$0.05, **\textit{p}$<$0.01}
+\label{PERMANOVAvar}
+\begin{tabular}{l|ccccc} 
+\toprule
+                                  & \multicolumn{1}{c}{10 meters} & \multicolumn{1}{c}{20 meters} & \multicolumn{1}{c}{30 meters} & \multicolumn{1}{c}{40 meters} & \multicolumn{1}{c}{50 meters}  \\ 
+\midrule
+$\sigma^{'}_{Island}$             & **45.70                       & **43.13                       & **41.66                       & **40.21                       & **39.39                        \\ 
+$\sigma^{'}_{Observer}$           & 3.17                          & -0.42                         & 1.99                          & 2.31                          & 2.72                           \\ 
+$\sigma^{'}_{Location}$           & **17.58                       & **17.49                       & **17.47                       & **18.02                       & **18.41                        \\ 
+$\sigma^{'}_{Island:Observer}$    & 1.40                          & 2.82                          & 2.37                          & 2.46                          & 1.25                           \\ 
+$\sigma^{'}_{Transect}$           & **19.35                       & **19.60                       & **19.54                       & **19.27                       & **18.61                        \\ 
+$\sigma^{'}_{Location:Observer}$  & *5.84                         & **8.34                        & **8.14                        & **8.18                        & **8.98                         \\ 
+$\sigma^{'}_{Transect:Observer}$  & **11.90                       & **12.34                       & **11.53                       & **11.15                       & **10.92                        \\ 
+$\sigma^{'}_{Residuals}$          & 28.19                         & 23.28                         & 20.66                         & 18.58                         & 16.49                          \\ 
+\hline
+\% $\sigma^{'2}_{Island}$            & 55.64                       &    56.00                   &   56.76                     &    56.52                    &   57.09                      \\ 
+\% $\sigma^{'2}_{Observer}$            &   0.27                     &     0.00                   &      0.13                  &   0.19                     &   0.27                        \\ 
+\% $\sigma^{'2}_{Location}$            &  8.23                      &        9.21                &    9.98                    &   11.35                     &   12.48                     \\ 
+\% $\sigma^{'2}_{Island:Observer}$     &   0.05                     &    0.24                    &    0.18                    &  0.21                      &   0.06                        \\ 
+\% $\sigma^{'2}_{Transect}$          &  9.97                      &    11.57                    &    12.48                    &  12.98                      &  12.75                      \\ 
+\% $\sigma^{'2}_{Location:Observer}$  &  0.91                      &      2.09                  &    2.17                    &   2.34                     &   2.97                      \\ 
+\% $\sigma^{'2}_{Transect:Observer}$   &   3.77                     &     4.59                   &    4.34                    &  4.34                      &  4.40                     \\ 
+\% $\sigma^{'2}_{Residuals}$          &  21.16                      &     16.31                   &   13.95                     &   12.07                     &  10.01                        \\ 
+\% $\sigma^{'2}_{Sampling}$          &  25.89                      &     23.23                   &   20.64                     &   18.96                     &  17.44                        \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+\renewcommand{\arraystretch}{1}
+
+Using different transect lengths, metrics, data transformations and methods to calculate dissimilarity matrices had a significant (\textit{p}$<$0.05) effect on the goodness-of-fit of the PERMANOVA models (pairwise paired t-test of R$^{2}$ values of each level of every considered factor with Bonferroni correction. Interactions were not considered). The most significant differences were due to the increase of the transect length followed by the method to calculate the dissimilarity matrices (Bray-Curtis, Euclidean, Gower and Kulczynski), the metrics (MaxCount and MinCount) and finally the data transformation (fourth-root, logarithm and presence/absence) (\nameref{fig:PERMANOVA_squaredR_parameters_boxplots} and \nameref{fig:PERMANOVA_residuals_parameters_boxplots}). 
+
+The leave-one-out cross-validation classification error of the CAP analysis decreased with increasing transect length for both the grouping factors Transect and Location (Table \ref{classificationerrorCAPtable}). The decrease was most pronounced for the analysis using Transect as grouping factor. 
+
+Given the pronounced difference of the fish assemblage structure between islands, the first PCO axis of a PCO analysis of the full data was a good proxy to distinguish the fish assemblage structures of both islands. Using the correlations of the full data with this first PCO axis, the species that are most important to explain this difference between islands, could be identified. The most important species to explain differences in fish assemblage structure between the islands included, for Santa Cruz, the Bullseye puffer fish (\textit{Sphoeroides annulatus}; \textit{r} = $-$0.62), Yellowtail damselfish (\textit{Microspathodon bairdii}; \textit{r} = $-$0.83) and Pacific spotfin mojarra (\textit{Eucinostomus dowii}; \textit{r} = $-$0.64), and, for Floreana, the Bravo clinid (\textit{Gobioclinus dendriticus}; \textit{r} = 0.56), Galapagos ringtail damselfish (\textit{Stegastes beebei}; \mbox{\textit{r} = 0.83}) and Chameleon wrasse (\textit{Halichoeres dispilus}; \textit{r} = 0.87).
+
+\renewcommand{\arraystretch}{1.25}
+\begin{table}
+\centering
+\scriptsize
+\caption{{\bf Classification error of leave-one-out cross-validation of CAP analyses} (Bray-Curtis, fourth-root transformed, eight PCO axes (\textit{m})). CAP analyses were performed for different transect lengths (10, 20, 30, 40 and 50 meters) and different grouping factors (Location and Transect).}
+\label{classificationerrorCAPtable}
+\begin{tabular}{l|ccccc} 
+\toprule
+\multirow{2}{*}{} & \multicolumn{5}{c}{Leave-one-out cross-validation classification error}  \\ 
+                  & 10 meters & 20 meters & 30 meters & 40 meters & 50 meters                      \\ 
+\midrule
+Location          & 35.37    & 36.11    & 28.70    & 25.56    & 25.00                         \\ 
+Transect          & 60.37    & 52.78    & 46.85    & 42.04    & 36.85                         \\
+\bottomrule
+\end{tabular}
+\end{table}
+\renewcommand{\arraystretch}{1}
+
+\subsection{Precision estimates of abundance, diversity and fish assemblage structure}
+\label{res:precision}
+
+Precision, defined as the inverse of the standard error over the mean, of our estimates of both species density and Shannon diversity increased with increasing number of observations and increasing transect length (Fig.  \ref{fig:precision_SR_and_H_total_dist}, A and C). Although the precision improved markedly with increasing total swim distance (transect length x number of repeats), it did not matter much whether more repeats or longer transects were considered: 10-meter transects were slightly more efficient to obtain precise results on the species density (Fig.  \ref{fig:precision_SR_and_H_total_dist} B), while 20 or 30-meter transects were slightly more efficient for the Shannon diversity (Fig. \ref{fig:precision_SR_and_H_total_dist} D). For both diversity measures, the precision seemed to level off at approximately 250 meters of total swim distance. Higher levels of turbidity caused lower levels of precision for both the species density and Shannon diversity (\nameref{fig:precision_SR_turbidity}). For all observed species, shorter transects (10 and 20 meters) with more repeats turned out to be most efficient to improve precision in terms of total swim distance, with the exception of the Galapagos Sea Bream (\textit{Archosargus pourtalesi}) and the Black Striped Salema (\textit{Xenocys jessiae}), for which longer transect lengths and less repeats were more efficient (\nameref{fig:precision_ind_specsN}). The stronger effect of repeats over transect lengths was more clear for the counts of the individual species than for the diversity indices, but the total swim distance at which the precision curve levelled off was highly species dependent. Multivariate pseudo error variance (MultSE) was also clearly affected more strongly by the number of repeats than by transect length, hence choosing 10-meter transects turned out to be most efficient to improve precision (Fig. \ref{fig:MSE_permanova_precision}).  MultSE leveled off at longer total swim distances for the longer transect lengths; for example, for 50-meter transects this was around 350 meters, while for 20-meter transects this was around 200 meters. 
+
+\begin{figure}[h!]
+  \centering\includegraphics[scale=0.65]{precision_SR_and_H_total_dist_N.pdf}
+  \caption{{\bf Univariate precision estimates of species density and Shannon diversity}. Estimates of the standard error over the mean for species density (A) and Shannon diversity (C) in function of the number of repeats. Precision is defined as the inverse of the standard error over the mean. In (B) and (D) the standard error over the mean of species density and Shannon diversity is given as a function of the total swim distance. Total swim distance is defined as the number of repeats multiplied by the transect length. Different transect lengths were considered ranging from 10, 20, 30, 40 to 50 meters. Monte Carlo simulations (n=10$^{4}$) were applied to determine the standard error over the mean per transect. The average values over all transects are visualized. The error bars represent the 95\% confidence intervals which were constructed using the pooled standard deviation of the estimates.}
+  \label{fig:precision_SR_and_H_total_dist}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering\includegraphics[scale=0.65]{MSE_permanova_precisionN.pdf}
+  \caption{{\bf Multivariate precision estimates of fish assemblage structure}. Multivariate pseudo error variance (multSE) of PERMANOVA analysis based on Bray-Curtis dissimilarities (fourth-root transformed) with Island as fixed factor and Location and Transect as nested random factors. Monte Carlo simulations (n=10$^{4}$) were applied to determine the multSE per number of repeats. The average values over all transects are visualized. The error bars represent the 95\% confidence intervals which were constructed using the pooled standard deviation of the estimates.} 
+  \label{fig:MSE_permanova_precision}
+\end{figure}
+
+\section{Discussion}
+
+\subsection{Observer bias, observer effects and instantaneous fish displacement}
+
+Observer biases and sampling variability are important aspects to consider in observational studies of fish assemblages, but the simple sampling designs and lacking replicates of most studies hampers a detailed assessment \cite{Bernard2013,Murphy2010}. The hierarchical sampling design of this study allowed to estimate inter-observer variability related to the observers themselves (i.e. observer bias) and their interaction with the sampling units and sites (i.e. observer effects and instantaneous fish displacement). Although the provided estimates of the observer bias and sampling variability can be considered as relatively reliable, the additional partitioning of sampling variability in observer effects, instantaneous fish displacement and random counting/detection errors is subjected to much more uncertainty. Although fish displacement at very short time scales is often referred to as random, perfect randomness seldomly occurs in ecology and undetected spatiotemporal patterns are more likely the rule than the exception (e.g. undocumented foraging and reproduction behavior and the conditional nature of animal movement in terms of space and time) \cite{Dornelas2006CoralBiodiversity}. Since patterns related to observer effects and instantaneous fish displacement can therefore be confounded and difficult to unravel, additional insights in the biological and ecological traits of fish can be useful to distinguish between causes of variation \cite{Kulbicki2010,MacNeil2008,Pais2017}.  
+
+The relatively low ICC$_{Observer}$ values, which are an indication of the proportion of variability explained by the factor Observer, of most univariate models in combination with the low $\sigma^{'}_{Observer}$ of the multivariate models suggested that systematic observer biases were generally limited. However, the interaction between the factor Observer and the factor Transect or Location often turned out to be important, suggesting that some more complex processes involving observer effects and instantaneous fish displacement might be involved. This corroborates with the results of visual census studies in which observer biases were less important than sampling variability \cite{Edgar2004,Williams2006}. For the observed structure of the fish assemblages and the diversity estimates, i.e. species density and Shannon diversity, these interaction effects were considerably smaller than the effects attributed to the factors Location and Transect. However, for the univariate species count models, 18 out of 36 species had considerably high inter-observer variabilities compared to the effects attributed to the factors Location and Transect. Observers covered the transects sequentially, meaning that each observer first finished six observations of one transect before moving to another transect. Therefore, one would expect that observations closer in time would be more similar, causing significant interaction effects of the factors Transect and Observer. Although mostly not significant, there were indeed some clear patterns in temporal auto-correlation for some species, with similar amounts of species being significantly deterred (5) or attracted (7) by observers. In addition, differences in detectability due to intrinsic factors of fish species such as crypsis and color or extrinsic factors such as observer behavior may have caused an additional bias \cite{Boulinier1998,MacNeil2008,Willis2001}. For example, the Marbled goby \textit{(Gobio manchada)}, a shy and cryptic species that hides in crevices, was scared away by observers, while the Panamic sergeant major \textit{(Abudefduf troschelii)} and Mexican hogfish (\textit{Bodianus diplotaenia}), two species which are known to not be frightened easily, appeared attracted to observers as they were typically recorded more often during the first and last observations, respectively \cite{Humann2003ReefGalapagos}. It was unlikely that individuals of scared-away fish species would be recorded by the second and third observer, while non-scared fish would be more likely to be observed by all observers. Indeed, models for fish that were scared away typically showed higher levels of inter-observer variability than models for fish that seemed to be attracted to the observer. 
+
+Besides the effect of observers on fish behavior, there are also effects of fish behavior on observer perception. Schooling behaviour may cause higher inter-observer variability \cite{Kulbicki1998,McClanahan2007}. As a single observer records a school of fish that moves out of view during the subsequent observations of other observers surveying that specific transect or location, the effect on inter-observer variability would be much larger than when a single individual would move out of view. This was most likely the case for the White salema (\textit{Xenichthys agassizii}) and Galapagos grunt (\textit{Orthopristis forbesi}) which are known to spatially cluster and move around in group \cite{Humann2003ReefGalapagos}. Similarly, the displacement of individual fish in and out of view will have a stronger effect on the inter-observer variability of the counts of rare species (such as the Jewel moray (\textit{Muraena lentiginosa})) compared to that of more common species, as instantaneous fish displacement will affect observed fish abundances more severely \cite{Humann2003ReefGalapagos}, potentially even causing species to be detected during only some of the observations of a specific transect or location \cite{Boulinier1998}. 
+
+Finally, the behavior of an observer might also affect his/her perception. Individual observers covering a transect multiple times may gain knowledge regarding the location of species that were hiding and may unconsciously give these locations more attention. For example, on the level of a single observer, once the sedentary Bravo clinid (\textit{Gobioclinus dendriticus}) was detected \cite{Humann2003ReefGalapagos}, it was much more likely that it would also be detected during successive observations. Therefore, the interaction effects are likely the result of a combination of temporal auto-correlation between observations, instantaneous fish displacement and biases related to traits of both fish and observer. 
+
+Overall, for the multivariate structure of the fish assemblages, the factor Observer and its interaction with spatial factors turned out to be much less important than the factors Location and Transect. This result is in strong contrast with the results of traditional visual census studies which are often faced with high levels of inter-observer variability \cite{Bernard2013,Edgar2004,Dickens2011,Tessier2013}. Although, the \textquote{unwanted} sampling variability associated with  instantaneous fish displacement, observer effects and random counting/detection errors could be relatively large for short transects (1.42 times the variability explained by transects and locations), longer transects allowed for a significant improvement (0.69 times the variability explained by transects and locations). Although not assessed in this study, detectabilty of species has been shown to be positively related to density \cite{Dorazio2005}. Hence, the choice of the transformation and/or dissimilarity measure, which differ in the weights given to rare and common species, might also affect the importance of observer effects and instantaneous fish displacement. In addition, if researchers are interested in the distributions of individual species, species-specific observer effects and instantaneous fish displacement might still be very important as the proportion of sampling variability of most species (i.e. 28 out of 36 species for transect lengths of 50 meters) exceeded the proportion of variability explained by the sampling units and sites. 
+
+The overall low observer bias suggests that one observer is sufficient and that observations of different observers under similar conditions are interchangeable, given these observers received a similar training. Training can limit counting/detection errors and observer effects to some extent, but an important part of the sampling variability related to the observer effects, counting/detection errors, and instantaneous fish displacement will remain. Although this \textquote{uncontrollable} yet important part of the sampling variability cannot be reduced, it can be accounted for when sufficient repetitions of sufficiently long transects are available (see section \ref{4.2}) \cite{Irigoyen2013VariabilityCensus,Thompson1997}.
+
+\subsection{Design error and sampling variability}
+\label{4.2}
+
+The definition of a design error depends on the hypothesis and on the scale of a study. For example, if one is interested in the association of a species or fish assemblage with different classified habitat patches, the size of the repeated sampling unit is likely to affect the sampling variability \cite{McCormick1987EstimatingStrip-transects}. If instead, one is interested in the association of a species or fish assemblage with a specific area, sampling units that are too small may introduce a design error because of their inability to account for the range of different habitat types present in the study area \cite{Sale1983CorrectionFishes}. 
+
+Although habitat patches were not explicitly classified in this study, each transect could be thought of as a unique series of habitat patches that did not alter during sampling. To assess whether species or fish assemblages are effectively associated with a specific transect (or subset of a transect), some repeated observations are required. Precision quantifies the concordance of multiple observations and was determined for species density, Shannon diversity and counts of individual species of each transect. The precision of most parameters increased with the number of repeats and the transect length. Hence, longer transect lengths were characterized by lower sampling variabilities. In addition, the lower CAP cross-validation classification errors (Table \ref{classificationerrorCAPtable}) and the lower dissimilarity values of the longer transects (Fig. \ref{fig:samples_pooled}) suggested that also for a multivariate response (e.g. fish assemblage structure), sampling variability decreased with increasing sampling length. 
+
+In addition to associations with habitats, researchers are often interested in associations of fish species or assemblages with specific areas or locations. Instead of the assessment of small-scale relationships between fish and their environment, one then wants to obtain a more general idea of how fish are affected by their surrounding environment \cite{Bacheler2016}. Such an approach makes sense, given the high mobility of different fish species and the often strong spatiotemporal dynamics of environmental conditions in coastal areas \cite{Bruneel2018}. Therefore, rather than assessing the sampling variability within transects, the variability between transects and between locations should be assessed. The linear mixed models of species density and Shannon diversity fitted the data better with increasing transect length, which is likely a consequence of the smaller chance of discovering additional species with further sampling effort in a specific location or transect, as can be seen in the species accumulation curves of \nameref{fig:SR_permutation}, \nameref{fig:SR_permutation_different_transect_lengths} and \nameref{fig:SR_and_H_ifo_distance}. Similarly, the PERMANOVA models fitted the data better (Table \ref{PERMANOVAvar}) and CAP cross-validations had lower classification errors for the different locations (Table \ref{classificationerrorCAPtable}) with increasing transect length. If more different micro-habitats are monitored, the observed fish assemblages within a location will likely be more representative for that location (\nameref{fig:PERMANOVA_squaredR_parameters_boxplots}). 
+The improved goodness-of-fit of the PERMANOVA models with increasing transect length (R$^{2}_{10m}$=0.761;  R$^{2}_{50m}$=0.880), could mainly be attributed to the factors Location (R$^{2}_{Location;10m}$=0.145;  R$^{2}_{Location;50m}$=0.212) and to a lesser extent to Transect (R$^{2}_{Transect;10m}$=0.117;  R$^{2}_{Transect;50m}$=0.142), suggesting that, in addition to the reduced sampling variability within transects, the representativeness of the transects for a specific location improved. The Observer-related factors of the PERMANOVA models remained limited, suggesting that, unlike the sampling variability and design error, the inter-observer variability did not change much from short to long transects (Table \ref{PERMANOVAvar}). In addition, the design error associated with short transects did not appear to impede multivariate analyses of the assemblage structure for the transect lengths considered in this study: Even the lowest transect length of 10 meters provided interpretable data for analyses of the assemblage structure as uninformative dissimilarity values were almost non-existent, indicating that there was no need to pool samples (Fig. \ref{fig:samples_pooled}).
+
+Not only the procedures to collect video material, but also the procedures to analyze them should be evaluated. The PERMANOVA model using log-transformed MaxCount data from 50-meter transects with six repeats performed best, while the PERMANOVA models using presence-absence or transformed MinCount data of lower transect lengths performed worst (\nameref{fig:PERMANOVA_residuals_parameters_boxplots}). MaxCount models were significantly better in explaining the variability than the MinCount models, probably because the latter may not scale linearly with true abundance \cite{Schobernd2014}. MinCount is often used instead of MaxCount in video monitoring studies to avoid double counts \cite{Schobernd2014}. However, since we used video transects rather than stationary devices, the risk of double counting was considerably less. Although neglecting the abundance of a species scored worst in terms of goodness-of-fit, the difference between MinCount and presence-absence data was rather small. Therefore, in this specific case, if one wanted to reduce the time required for video analysis, the presence-absence instead of the abundance data could have been used, without much information being lost. 
+
+Transect length remained the most important parameter affecting the performance of the PERMANOVA models, but longer transects also increased the time required for both the data collection and processing. The square root of the residual mean square of the PERMANOVA analysis decreased with increasing number of repeats and with increasing transect length. This proxy for multivariate precision was more affected by number of repeats than by transect length, suggesting that more repeats are preferred over longer transects to increase the precision. However, more repeats do not alter the representativeness of the sampling unit for the study area. Therefore, the choice between more repeats or longer transects should be guided by the required level of precision and representativeness of the sampling unit for the study area. 
+
+The precision of the MaxCount of most encountered species, with the exception of the Galapagos Sea Bream (\textit{Archosargus pourtalesi}) and the Black Striped Salema (\textit{Xenocys jessiae}), was also affected more strongly by the number of repeats than by transect length. Although there was a clear increase in the precision of species density and Shannon diversity with total swim distance, it did not matter much whether longer transect lengths or more repeats were applied. For the assessment of species density, 10-meter transects were slightly more efficient, while for the Shannon diversity, 20 to 30-meter transects were slightly more efficient. In addition to the number of repeats and the transect length, the visibility also alters the precision \cite{Figueroa-Pico2020,Bicknell2016,MacNeil2008}. A higher turbidity resulted in a lower visibility which caused clearly lower precision levels of the species density and Shannon diversity. Observers had to swim longer transect lengths or perform more repeats in turbid conditions compared to clear water conditions. Overall, if researchers want to improve precision because of low visibility or pronounced spatial and temporal dynamics, more repeats should be preferred over longer transects. The improved ability to account for the existing sampling variability when including more repeats is stronger (per unit of sampling effort) than the decrease in sampling variability when using longer transects.
+
+It should be noted that, besides the objectives of the study, time constraints and the nature of the parameter of interest, the most optimal distribution of the sampling effort among different methodological aspects may also be affected by more local logistic constraints \cite{McCormick1987EstimatingStrip-transects}. For example, in order to choose between more repeats and longer transects, researchers need to balance the expected degree of representativeness, precision and disturbance tied up with the sampling units. On the one hand, it may be more difficult to maintain homogeneous areas with respect to the observed fish assemblages when transects are longer \cite{Anderson2015}, but on the other hand, more repeats of the same transect might cause more disturbances and may be less informative when the objective is to obtain representative observations of the local fish assemblages. More and longer transects would in that case be more suitable.
+
+\section{Conclusion}
+
+Deciding on the distribution of the sampling effort among different methodological aspects is an important step for any study. In this study we described how researchers should take into account a broad range of potentially conflicting theoretical and practical aspects when setting up an experimental design for video transects. For most species, the presence of an observer has a significant effect on fish behavior which introduces severe dependence between subsequent observations. These observer effects seem however negligible when the overall fish assemblage structure is assessed rather than the counts of individual species. Similarly, the overall sampling variability (consisting of observer effects, instantaneous fish displacement and random counting errors) can for some individual species be very high (up to 100 \%), while for community assessments it remains relatively low (17-26\%). The errors associated with the perception of the observers themselves on the other hand, i.e. observer bias, is negligible for both community and species assessments (mostly below 1\%). Longer transects have a much lower sampling variability (33\% lower for 10 to 50 meter transects for community assessments), yet to increase precision of repeated observations, more repeats seem more effective than longer transects. For transects, the MaxCount is prefered over MinCount as the former seems to yield a lower sampling variability even though the video analysis time is the same. Using counts instead of presence/absence data is also prefered, as the sampling variability of the observations of the former is somewhat lower. However, if the amount of time available for video analysis is limited, presence/absence observations still provide observations of reasonably low sampling variability. In summary, sampling variability, methodological parameters, environmental conditions, and ecological knowledge, e.g. species-specific traits affecting detectability, are important for video transects and should be accounted for to properly assess the ecological state and the effect of management practices on the environment. 
+
+\section*{Supporting information}
+
+%\subsection*{Additional information}
+
+% Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
+\paragraph*{S1 File.}
+\label{ap:add:instant}
+{\bf Instantaneous fish displacement.}
+
+\paragraph*{S2 File.}
+\label{ap:add:applic}
+{\bf Applications of video monitoring.}
+
+%\subsection*{Map}
+\paragraph*{S1 Fig.}
+\label{fig:MAP}
+{\bf Map of the study area.}
+
+%\subsection*{Video analysis}
+\paragraph*{S3 File.}
+\label{Video_analysis}
+{\bf Guidelines for the video analysis.}
+
+%\subsection*{Independence of observations}
+\label{Independence}
+\paragraph*{S1 Table.}
+\label{ACF}
+{\bf Temporal autocorrelation of observed abundance of single species between observations.}
+
+\paragraph*{S2 Table.}
+\label{BIN_MODEL_SIGN}
+{\bf Observer effects on observed presence/absence of single species.}
+
+\paragraph*{S2 Fig.}
+\label{fig:plotpmgram1}
+{\bf Temporal autocorrelation of observed community structure between observations without sample effect.}
+
+\paragraph*{S3 Fig.}
+\label{fig:plotpmgram2}
+{\bf Temporal autocorrelation of observed community structure between observations without sample effect and observer id effect.}
+
+%\subsection*{Indicator species}
+
+\paragraph*{S4 File.}
+\label{indicatorspecies2}
+{\bf Indicator species.}
+
+\paragraph*{S3 Table.}
+\label{indicatorspecies2table}
+{\bf Selection of potential indicator species.}
+
+%\subsection*{Species Accumulation Curves (SACs)}
+%\label{SACs}
+
+\paragraph*{S4 Fig.}
+\label{fig:SR_permutation}
+{\bf Species Accumulation Curves (SACs) in function of number of repeats.}
+
+\paragraph*{S5 Fig.}
+\label{fig:SR_permutation_different_transect_lengths}
+{\bf Species Accumulation Curves (SACs) in function of number of repeats.}
+
+\paragraph*{S6 Fig.}
+\label{fig:SR_and_H_ifo_distance}
+{\bf Species Accumulation Curves (SACs) in function of distance covered.}
+
+%\subsection*{Generalized linear mixed models}
+
+\paragraph*{S4 Table.}
+\label{glmmTMB_ind_species_CAP_table}
+{\bf Models of the abundance of single species, for different transect lengths.}
+
+\paragraph*{S5 Table.}
+\label{glmm_all_species_table_island_fixed}
+{\bf Models of the abundance of single species.}
+
+%\subsection*{Design error}
+
+\paragraph*{S6 Table.}
+\label{tab:pooling_observations_location}
+{\bf Pooling of observations within transects.}
+
+\paragraph*{S7 Table.}
+\label{tab:pooling_observations_transect}
+{\bf Pooling of observations within locations.}
+
+%\subsection*{PERMANOVA}
+
+\paragraph*{S7 Fig.}
+\label{fig:PERMANOVA_residuals_parameters_boxplots}
+{\bf Models of the fish assemblage structure using different parameters.}
+
+\paragraph*{S8 Fig.}
+\label{fig:PERMANOVA_squaredR_parameters_boxplots}
+{\bf Model of the fish assemblage structure for the full data.}
+
+\paragraph*{S8 Table.}
+\label{PERMANOVAmodel}
+{\bf Models of the fish assemblage structure using different transect lengths.}
+
+\paragraph*{S9 Table.}
+\label{PERMANOVA_Video_analyst}
+{\bf Models of the fish assemblage structure using different parameters.}
+
+%\subsection*{Precision}
+
+\paragraph*{S9 Fig.}
+\label{fig:precision_SR_turbidity}
+{\bf Precision estimates of species density and Shannon diversity.}
+
+\paragraph*{S10 Fig.}
+\label{fig:precision_ind_specsN}
+{\bf Precision estimates of observed abundance of different potential indicator species.}
+
+%\nolinenumbers
+
+% Either type in your references using
+% \begin{thebibliography}{}
+% \bibitem{}
+% Text
+% \end{thebibliography}
+%
+% or
+%
+% Compile your BiBTeX database using our plos2015.bst
+% style file and paste the contents of your .bbl file
+% here. See http://journals.plos.org/plosone/s/latex for 
+% step-by-step instructions.
+% 
+%\bibliography{references.bib}
+
+\begin{thebibliography}{10}
+
+\bibitem{Halpern2007}
+Halpern BS, Selkoe KA, Micheli F, Kappel CV.
+\newblock {Evaluating and ranking the vulnerability of global marine ecosystems
+  to anthropogenic threats}.
+\newblock Conservation Biology. 2007;21(5):1301--1315.
+\newblock doi:{10.1111/j.1523-1739.2007.00752.x}.
+
+\bibitem{Ford2018}
+Ford AK, Eich A, McAndrews RS, Mangubhai S, Nugues MM, Bejarano S, et~al.
+\newblock {Evaluation of coral reef management effectiveness using conventional
+  versus resilience-based metrics}.
+\newblock Ecological Indicators. 2018;85:308--317.
+\newblock doi:{10.1016/j.ecolind.2017.10.002}.
+
+\bibitem{Gonzalez-Sanson2010}
+Gonz{\'{a}}lez-Sans{\'{o}}n G, Aguilar C.
+\newblock {Reef fish diversity components as indicators of cumulative effects
+  in a highly impacted fringe reef}.
+\newblock Ecological Indicators. 2010;10(3):766--772.
+\newblock doi:{10.1016/j.ecolind.2009.11.009}.
+
+\bibitem{Guillemot2014}
+Guillemot N, Chabanet P, Kulbicki M, Vigliola L, L{\'{e}}opold M, Jollit I,
+  et~al.
+\newblock {Effects of fishing on fish assemblages in a coral reef ecosystem:
+  From functional response to potential indicators}.
+\newblock Ecological Indicators. 2014;43:227--235.
+\newblock doi:{10.1016/j.ecolind.2014.02.015}.
+
+\bibitem{Caldwell2016}
+Caldwell ZR, Zgliczynski BJ, Williams GJ, Sandin SA.
+\newblock {Reef Fish Survey Techniques: Assessing the Potential for
+  Standardizing Methodologies}.
+\newblock PLoS ONE. 2016;11(4):1--14.
+\newblock doi:{10.1371/journal.pone.0153066}.
+
+\bibitem{Denny2003}
+Denny C, Willis TJ.
+\newblock {Effects of Poor Knights Islands Marine Reserve on demersal fish
+  populations}.
+\newblock DOC Science Internal Series. 2003;142.
+
+\bibitem{Jones2015a}
+Jones T, Davidson RJ, Gardner JPA, Bell JJ.
+\newblock {Evaluation and optimisation of underwater visual census monitoring
+  for quantifying change in rocky-reef fish abundance}.
+\newblock Biological Conservation. 2015;186:326--336.
+\newblock doi:{10.1016/j.biocon.2015.03.033}.
+
+\bibitem{Thompson1997}
+Thompson AA, Mapstone BD.
+\newblock {Observer effects and training in underwater visual surveys of reef
+  fishes}.
+\newblock Marine Ecology Progress Series. 1997;154:53--63.
+\newblock doi:{10.3354/meps154053}.
+
+\bibitem{Dickens2011}
+Dickens LC, Goatley CHR, Tanner JK, Bellwood DR.
+\newblock {Quantifying relative diver effects in underwater visual censuses}.
+\newblock PLoS ONE. 2011;6(4).
+\newblock doi:{10.1371/journal.pone.0018965}.
+
+\bibitem{Langlois2010}
+Langlois TJ, Harvey ES, Fitzpatrick B, Meeuwig JJ, Shedrawi G, Watson DL.
+\newblock {Cost-efficient sampling of fish assemblages: Comparison of baited
+  video stations and diver video transects}.
+\newblock Aquatic Biology. 2010;9(2):155--168.
+\newblock doi:{10.3354/ab00235}.
+
+\bibitem{Lindfield2014}
+Lindfield SJ, Harvey ES, Mcilwain JL, Halford AR.
+\newblock {Silent fish surveys: Bubble-free diving highlights inaccuracies
+  associated with SCUBA-based surveys in heavily fished areas}.
+\newblock Methods in Ecology and Evolution. 2014;5(10):1061--1069.
+\newblock doi:{10.1111/2041-210X.12262}.
+
+\bibitem{McCormick1987EstimatingStrip-transects}
+McCormick MI, Choat JH.
+\newblock {Estimating total abundance of a large temperate-reef fish using
+  visual strip-transects}.
+\newblock Marine Biology. 1987;96(4):469--478.
+\newblock doi:{10.1007/BF00397964}.
+
+\bibitem{Pais2017}
+Pais MP, Cabral HN.
+\newblock {Fish behaviour effects on the accuracy and precision of underwater
+  visual census surveys. A virtual ecologist approach using an individual-based
+  model}.
+\newblock Ecological Modelling. 2017;346:58--69.
+\newblock doi:{10.1016/j.ecolmodel.2016.12.011}.
+
+\bibitem{Willis2000}
+Willis TJ, Millar RB, Babcock RC.
+\newblock {Detection of spatial variability in relative density of fishes:
+  Comparison of visual census, angling, and baited underwater video}.
+\newblock Marine Ecology Progress Series. 2000;198:249--260.
+\newblock doi:{10.3354/meps198249}.
+
+\bibitem{Willis2001}
+Willis TJ.
+\newblock {Visual census methods underestimate density and diversity of cryptic
+  reef fishes}.
+\newblock Journal of Fish Biology. 2001;59(5):1408--1411.
+\newblock doi:{10.1006/jfbi.2001.1721}.
+
+\bibitem{Kulbicki1998}
+Kulbicki M.
+\newblock {How the acquired behaviour of commercial reef fishes may influence
+  the results obtained from visual censuses}.
+\newblock Journal of Experimental Marine Biology and Ecology.
+  1998;222(1-2):11--30.
+\newblock doi:{10.1016/S0022-0981(97)00133-0}.
+
+\bibitem{Usseglio2015QuantifyingApproaches}
+Usseglio P.
+\newblock {Quantifying reef fishes: Bias in observational approaches}.
+\newblock In: Ecology of Fishes on Coral Reefs; 2015.
+
+\bibitem{Williams2006}
+Williams ID, Walsh WJ, Tissot BN, Hallacher LE.
+\newblock {Impact of observers' experience level on counts of fishes in
+  underwater visual surveys}.
+\newblock Marine Ecology Progress Series. 2006;310:185--191.
+\newblock doi:{10.3354/meps310185}.
+
+\bibitem{McClanahan2007}
+McClanahan TR, Graham NAJ, Maina J, Chabanet P, Bruggemann JH, Polunin NVC.
+\newblock {Influence of instantaneous variation on estimates of coral reef fish
+  populations and communities}.
+\newblock Marine Ecology Progress Series. 2007;340:221--234.
+\newblock doi:{10.3354/meps340221}.
+
+\bibitem{Irigoyen2013VariabilityCensus}
+Irigoyen AJ, Galv{\'{a}}n DE, Venerus LA, Parma AM.
+\newblock {Variability in Abundance of Temperate Reef Fishes Estimated by
+  Visual Census}.
+\newblock PLoS ONE. 2013;8(4):1--12.
+\newblock doi:{10.1371/journal.pone.0061072}.
+
+\bibitem{Cappo2006}
+Cappo M, Harvey ES, Shortis M.
+\newblock {Counting and measuring fish with baited video techniques - an
+  overview}.
+\newblock In: Australian Society for fish biology; 2006. p. 101--114.
+
+\bibitem{Cappo2011}
+Cappo M, Stowar M, Syms C, Johansson C, Cooper T.
+\newblock {Fish-habitat associations in the region offshore from James price
+  point - a rapid assessment using baited remote underwater video stations
+  (BRUVS)}.
+\newblock Journal of the Royal Society of Western Australia.
+  2011;94(2):303--321.
+
+\bibitem{Schmid2017}
+Schmid K, Reis-Filho JA, Harvey E, Giarrizzo T.
+\newblock {Baited remote underwater video as a promising nondestructive tool to
+  assess fish assemblages in clearwater Amazonian rivers: testing the effect of
+  bait and habitat type}.
+\newblock Hydrobiologia. 2017;784(1):93--109.
+\newblock doi:{10.1007/s10750-016-2860-1}.
+
+\bibitem{Harvey2007}
+Harvey ES, Cappo M, Butler JJ, Hall N, Kendrick GA.
+\newblock {Bait attraction affects the performance of remote underwater video
+  stations in assessment of demersal fish community structure}.
+\newblock Marine Ecology Progress Series. 2007;350:245--254.
+\newblock doi:{10.3354/meps07192}.
+
+\bibitem{Andradi-Brown2016}
+Andradi-Brown DA, Macaya-Solis C, Exton DA, Gress E, Wright G, Rogers AD.
+\newblock {Assessing caribbean shallow and mesophotic reef fish communities
+  using Baited-Remote Underwater Video (BRUV) and diver-operated video (DOV)
+  survey techniques}.
+\newblock PLoS ONE. 2016;11(12):1--23.
+\newblock doi:{10.1371/journal.pone.0168235}.
+
+\bibitem{Chapman2000}
+Chapman MR, Kramer DL.
+\newblock {Movements of fishes within and among fringing coral reefs in
+  Barbados}.
+\newblock Environmental Biology of Fishes. 2000;57(1):11--24.
+\newblock doi:{10.1023/A:1004545724503}.
+
+\bibitem{Mallet2014}
+Mallet D, Pelletier D.
+\newblock {Underwater video techniques for observing coastal marine
+  biodiversity: A review of sixty years of publications (1952-2012)}.
+\newblock Fisheries Research. 2014;154:44--62.
+\newblock doi:{10.1016/j.fishres.2014.01.019}.
+
+\bibitem{Pelletier2011}
+Pelletier D, Leleu K, Mou-Tham G, Guillemot N, Chabanet P.
+\newblock {Comparison of visual census and high definition video transects for
+  monitoring coral reef fish assemblages}.
+\newblock Fisheries Research. 2011;107(1-3):84--93.
+\newblock doi:{10.1016/j.fishres.2010.10.011}.
+
+\bibitem{Tessier2013}
+Tessier A, Pastor J, Francour P, Saragoni G, Crec'hriou R, Lenfant P.
+\newblock {Video transects as a complement to underwater visual census to study
+  reserve effect on fish assemblages}.
+\newblock Aquatic Biology. 2013;18(3):229--241.
+\newblock doi:{10.3354/ab00506}.
+
+\bibitem{Wartenberg2015}
+Wartenberg R, Booth AJ.
+\newblock {Video transects are the most appropriate underwater visual census
+  method for surveying high-latitude coral reef fishes in the southwestern
+  Indian Ocean}.
+\newblock Marine Biodiversity. 2015;45(4):633--646.
+\newblock doi:{10.1007/s12526-014-0262-z}.
+
+\bibitem{Schramm2020}
+Schramm KD, Harvey ES, Goetze JS, Travers MJ, Warnock B, Saunders BJ.
+\newblock {A comparison of stereo-BRUV, diver operated and remote stereo-video
+  transects for assessing reef fish assemblages}.
+\newblock Journal of Experimental Marine Biology and Ecology. 2020;524.
+\newblock doi:{10.1016/j.jembe.2019.151273}.
+
+\bibitem{Sward2019}
+Sward D, Monk J, Barrett N.
+\newblock {A Systematic Review of Remotely Operated Vehicle Surveys for
+  Visually Assessing Fish Assemblages}.
+\newblock Frontiers in Marine Science. 2019;6:134.
+\newblock doi:{10.3389/fmars.2019.00134}.
+
+\bibitem{Watson2005}
+Watson DL, Harvey ES, Anderson MJ, Kendrick GA.
+\newblock {A comparison of temperate reef fish assemblages recorded by three
+  underwater stereo-video techniques}.
+\newblock Marine Biology. 2005;148(2):415--425.
+\newblock doi:{10.1007/s00227-005-0090-6}.
+
+\bibitem{Watson2010}
+Watson DL, Harvey ES, Fitzpatrick BM, Langlois TJ, Shedrawi G.
+\newblock {Assessing reef fish assemblage structure: How do different
+  stereo-video techniques compare?}
+\newblock Marine Biology. 2010;157(6):1237--1250.
+\newblock doi:{10.1007/s00227-010-1404-x}.
+
+\bibitem{Wilson2018}
+Wilson SK, Graham NAJ, Holmes TH, MacNeil MA, Ryan NM.
+\newblock {Visual versus video methods for estimating reef fish biomass}.
+\newblock Ecological Indicators. 2018;85:146--152.
+\newblock doi:{10.1016/j.ecolind.2017.10.038}.
+
+\bibitem{Bernard2013}
+Bernard ATF, G{\"{o}}tz A, Kerwath SE, Wilke CG.
+\newblock {Observer bias and detection probability in underwater visual census
+  of fish assemblages measured with independent double-observers}.
+\newblock Journal of Experimental Marine Biology and Ecology. 2013;443:75--84.
+\newblock doi:{10.1016/j.jembe.2013.02.039}.
+
+\bibitem{Goetze2019}
+Goetze JS, Bond T, McLean DL, Saunders BJ, Langlois TJ, Lindfield S, et~al.
+\newblock {A field and video analysis guide for diver operated stereo-video}.
+\newblock Methods in Ecology and Evolution. 2019;10(7):1083--1090.
+\newblock doi:{10.1111/2041-210X.13189}.
+
+\bibitem{Labrosse2002}
+Labrosse P, Kulbicki M, Ferraris J.
+\newblock {Underwater fish visual census surveys}; 2002.
+
+\bibitem{Ruttenberg2005}
+Ruttenberg BI, Haupt AJ, Chiriboga AI, Warner RR.
+\newblock {Patterns, causes and consequences of regional variation in the
+  ecology and life history of a reef fish}.
+\newblock Oecologia. 2005;145(3):394--403.
+\newblock doi:{10.1007/s00442-005-0150-0}.
+
+\bibitem{Katsanevakis2012}
+Katsanevakis S, Weber A, Pipitone C, Leopold M, Cronin M, Scheidat M, et~al.
+\newblock {Monitoring marine populations and communities: Methods dealing with
+  imperfect detectability}.
+\newblock Aquatic Biology. 2012;16(1):31--52.
+\newblock doi:{10.3354/ab00426}.
+
+\bibitem{Bijoux2013a}
+Bijoux JP, Dagorn L, Gaertner JC, Cowley PD, Robinson J.
+\newblock {The influence of natural cycles on coral reef fish movement:
+  Implications for underwater visual census (UVC) surveys}.
+\newblock Coral Reefs. 2013;32(4):1135--1140.
+\newblock doi:{10.1007/s00338-013-1075-4}.
+
+\bibitem{Samoilys2000}
+Samoilys MA, Carlos G.
+\newblock {Determining methods of underwater visual census for estimating the
+  abundance of coral reef fishes}.
+\newblock Environmental Biology of Fishes. 2000;57:289--304.
+
+\bibitem{Zintzen2012}
+Zintzen V, Anderson MJ, Roberts CD, Harvey ES, Stewart AL, Struthers CD.
+\newblock {Diversity and Composition of Demersal Fishes along a Depth Gradient
+  Assessed by Baited Remote Underwater Stereo-Video}.
+\newblock PLoS ONE. 2012;7(10).
+\newblock doi:{10.1371/journal.pone.0048522}.
+
+\bibitem{Pelletier2012}
+Pelletier D, Leleu K, Mallet D, Mou-Tham G, Herv{\'{e}} G, Boureau M, et~al.
+\newblock {Remote high-definition rotating video enables fast spatial survey of
+  marine underwater macrofauna and habitats}.
+\newblock PLoS ONE. 2012;7(2):1--13.
+\newblock doi:{10.1371/journal.pone.0030536}.
+
+\bibitem{Edgar2004}
+Edgar GJ, Banks S, Farina JM, Calvopina M, Martinez C.
+\newblock {Regional biogeography of shallow reef fish and macro-invertebrate
+  communities in the Galapagos archipelago}.
+\newblock Journal of Biogeography. 2004;31(7):1107--1124.
+\newblock doi:{10.1111/j.1365-2699.2004.01055.x}.
+
+\bibitem{Gladstone2012}
+Gladstone W, Lindfield S, Coleman M, Kelaher B.
+\newblock {Optimisation of baited remote underwater video sampling designs for
+  estuarine fish assemblages}.
+\newblock Journal of Experimental Marine Biology and Ecology. 2012;429:28--35.
+\newblock doi:{10.1016/j.jembe.2012.06.013}.
+
+\bibitem{MacNeil2008}
+MacNeil MA, Tyler EHM, Fonnesbeck CJ, Rushton SP, Polunin NVC, Conroy MJ.
+\newblock {Accounting for detectability in reef-fish biodiversity estimates}.
+\newblock Marine Ecology Progress Series. 2008;367:249--260.
+\newblock doi:{10.3354/meps07580}.
+
+\bibitem{Harvey2004AAbundance}
+Harvey E, Fletcher D, Shortis MR, Kendrick GA.
+\newblock {A comparison of underwater visual distance estimates made by scuba
+  divers and a stereo-video system: Implications for underwater visual census
+  of reef fish abundance}.
+\newblock Marine and Freshwater Research. 2004;55(6):573--580.
+\newblock doi:{10.1071/MF03130}.
+
+\bibitem{Emslie2018ReefRecover}
+Emslie MJ, Cheal AJ, MacNeil MA, Miller IR, Sweatman HPA.
+\newblock {Reef fish communities are spooked by scuba surveys and may take
+  hours to recover}.
+\newblock PeerJ. 2018;2018(5).
+\newblock doi:{10.7717/peerj.4886}.
+
+\bibitem{Clarke2006}
+Clarke KR, Somerfield PJ, Chapman MG.
+\newblock {On resemblance measures for ecological studies , including taxonomic
+  dissimilarities and a zero-adjusted Bray – Curtis coefficient for denuded
+  assemblages}.
+\newblock Journal of Experimental Marine Biology and Ecology.
+  2006;330(1):55--80.
+\newblock doi:{10.1016/j.jembe.2005.12.017}.
+
+\bibitem{Anderson2008}
+Anderson MJ, Gorley RN, Clarke KR.
+\newblock {PERMANOVA+ for PRIMER: Guide to Software and Statistical Methods};
+  2008.
+
+\bibitem{Humann2003ReefGalapagos}
+Humann P, Deloach N.
+\newblock {Reef Fish Identification: Galapagos}.
+\newblock 2nd ed. New World Publications; 2003.
+
+\bibitem{Legendre2012}
+Legendre P, Legendre L.
+\newblock {Numerical ecology}.
+\newblock 3rd ed. Elsevier; 2012.
+
+\bibitem{Blasco-Moreno2019}
+Blasco-Moreno A, P{\'{e}}rez-Casany M, Puig P, Morante M, Castells E.
+\newblock {What does a zero mean? Understanding false, random and structural
+  zeros in ecology}.
+\newblock Methods in Ecology and Evolution. 2019;10:949--959.
+\newblock doi:{10.1111/2041-210X.13185}.
+
+\bibitem{Anderson2015}
+Anderson MJ, Santana-Garcon J.
+\newblock {Measures of precision for dissimilarity-based multivariate analysis
+  of ecological communities}.
+\newblock Ecology Letters. 2015;18(1):66--73.
+\newblock doi:{10.1111/ele.12385}.
+
+\bibitem{Lynch2014}
+Lynch HJ, Thorson JT, Shelton AO.
+\newblock {Dealing with under- and over-dispersed count data in life history,
+  spatial, and community ecology}.
+\newblock Ecology. 2014;95(11):3173--3180.
+\newblock doi:{10.1890/13-1912.1}.
+
+\bibitem{Imoto2014ADistribution}
+Imoto T.
+\newblock {A generalized Conway-Maxwell-Poisson distribution which includes the
+  negative binomial distribution}.
+\newblock Applied Mathematics and Computation. 2014;247:824--834.
+\newblock doi:{10.1016/j.amc.2014.09.052}.
+
+\bibitem{Nakagawa2017}
+Nakagawa S, Schielzeth H.
+\newblock {Coefficient of determination R 2 and intra-class correlation
+  coefficient ICC from generalized linear mixed-effects models}.
+\newblock Journal of the Royal Society Interface. 2017;14.
+\newblock doi:{10.1101/095851}.
+
+\bibitem{Brooks2017}
+Brooks MEJKK, van Benthem K, Magnusson A, Berg CW, Nielsen A, Skaug HJ, et~al.
+\newblock {glmmTMB balances speed and flexibility among packages for
+  zero-inflated generalized linear mixed modeling}.
+\newblock The R Journal. 2017;9(2):378--400.
+
+\bibitem{Anderson2003}
+Anderson M, Willis T.
+\newblock {Canonical Analysis of Principal Coordinates: a Useful Method of
+  Constrained Ordination for Ecology}.
+\newblock Ecology. 2003;84(2):511--525.
+\newblock doi:{doi:10.1890/0012-9658(2003)084[0511:CAOPCA]2.0.CO;2}.
+
+\bibitem{Andrew1987}
+Andrew NL, Mapstone BD.
+\newblock {Sampling and the description of spatial pattern in marine ecology}.
+\newblock Oceanogr Mar Biol Annu Rev. 1987;25:39--90.
+\newblock doi:{10.1016/0198-0254(88)92605-2}.
+
+\bibitem{Manly1992}
+Manly BFJ.
+\newblock {Bootstrapping for determining sample sizes in biological studies}.
+\newblock Journal of Experimental Marine Biology and Ecology.
+  1992;158(2):189--196.
+\newblock doi:{10.1016/0022-0981(92)90226-Z}.
+
+\bibitem{Murphy2010}
+Murphy HM, Jenkins GP.
+\newblock {Observational methods used in marine spatial monitoring of fishes
+  and associated habitats: A review}.
+\newblock Marine and Freshwater Research. 2010;61(2):236--252.
+\newblock doi:{10.1071/MF09068}.
+
+\bibitem{Dornelas2006CoralBiodiversity}
+Dornelas M, Connolly SR, Hughes TP.
+\newblock {Coral reef diversity refutes the neutral theory of biodiversity}.
+\newblock Nature. 2006;doi:{10.1038/nature04534}.
+
+\bibitem{Kulbicki2010}
+Kulbicki M, Cornuet N, Vigliola L, Wantiez L, Moutham G, Chabanet P.
+\newblock {Counting coral reef fishes: Interaction between fish life-history
+  traits and transect design}.
+\newblock Journal of Experimental Marine Biology and Ecology.
+  2010;387(1-2):15--23.
+\newblock doi:{10.1016/j.jembe.2010.03.003}.
+
+\bibitem{Boulinier1998}
+Boulinier T, Nichols JD, Sauer JR, Hines JE, Pollock KH.
+\newblock {Estimating species richness: The importance of heterogeneity in
+  species detectability}.
+\newblock Ecology. 1998;79(3):1018--1028.
+\newblock doi:{10.1890/0012-9658(1998)079[1018:ESRTIO]2.0.CO;2}.
+
+\bibitem{Dorazio2005}
+Dorazio RM, Royle JA.
+\newblock {Estimating size and composition of biological communities by
+  modeling the occurrence of species}.
+\newblock Journal of the American Statistical Association.
+  2005;100(470):389--398.
+\newblock doi:{10.1198/016214505000000015}.
+
+\bibitem{Sale1983CorrectionFishes}
+Sale PF, Sharp BJ.
+\newblock {Correction for bias in visual transect censuses of coral reef
+  fishes}.
+\newblock Coral Reefs. 1983;2(1).
+\newblock doi:{10.1007/BF00304730}.
+
+\bibitem{Bacheler2016}
+Bacheler NM, Schobernd CM, Harter SL, David AW, Sedberry GR, Kellison GT.
+\newblock {No evidence of increased demersal fish abundance six years after
+  creation of marine protected areas along the southeast United States Atlantic
+  coast}.
+\newblock Bulletin of Marine Science. 2016;92(4):447--471.
+
+\bibitem{Bruneel2018}
+Bruneel S, Gobeyn S, Verhelst P, Reubens J, Moens T, Goethals P.
+\newblock {Implications of movement for species distribution models -
+  Rethinking environmental data tools}.
+\newblock Science of the Total Environment. 2018;628-629:893--905.
+\newblock doi:{10.1016/j.scitotenv.2018.02.026}.
+
+\bibitem{Schobernd2014}
+Schobernd ZH, Bacheler NM, Conn PB, Trenkel V.
+\newblock {Examining the utility of alternative video monitoring metrics for
+  indexing reef fish abundance}.
+\newblock Canadian Journal of Fisheries and Aquatic Sciences.
+  2014;71(3):464--471.
+\newblock doi:{10.1139/cjfas-2013-0086}.
+
+\bibitem{Figueroa-Pico2020}
+Figueroa-Pico J, Carpio AJ, Tortosa FS.
+\newblock {Turbidity: A key factor in the estimation of fish species richness
+  and abundance in the rocky reefs of Ecuador}.
+\newblock Ecological Indicators. 2020;111.
+\newblock doi:{10.1016/j.ecolind.2019.106021}.
+
+\bibitem{Bicknell2016}
+Bicknell AWJ, Godley BJ, Sheehan EV, Votier SC, Witt MJ.
+\newblock {Camera technology for monitoring marine biodiversity and human
+  impact}.
+\newblock Frontiers in Ecology and the Environment. 2016;14(8):424--432.
+\newblock doi:{10.1002/fee.1322}.
+
+\end{thebibliography}
+
+
+
+\end{document}
+
